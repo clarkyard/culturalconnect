@@ -1,0 +1,121 @@
+.footer {
+  width: 100vw;
+  background: var(--foreground);
+  color: #fff;
+  padding: 4rem 0 2rem 0;
+  margin-top: 6rem;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  overflow: hidden;
+}
+
+.topSection {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.navLinks {
+  display: flex;
+  gap: 3rem;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.backToTopBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btnBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 200%;
+  background: var(--primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.btnTextAction {
+  position: relative;
+  z-index: 2;
+  transition: color 0.6s ease;
+}
+
+.backToTopBtn:hover .btnTextAction {
+  color: #fff;
+}
+
+.btnIconWrapperAction {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.marqueeWrapper {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.marquee {
+  display: flex;
+  white-space: nowrap;
+}
+
+.marqueeText {
+  font-size: 12vw;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  padding-right: 2rem;
+  color: rgba(255, 255, 255, 0.05);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem;
+    align-items: flex-start;
+  }
+  
+  .navLinks {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

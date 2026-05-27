@@ -1,0 +1,225 @@
+.whySection {
+  margin-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+.whyLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.whyTitle {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.whyDesc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 340px;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  height: 600px;
+}
+
+.certifiedIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.localExpertiseCard {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background: #f1f3f5;
+  border-radius: 32px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.localExpertiseCard:hover {
+  background: #e9ecef;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.mapWatermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mapSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.middleCol {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.certifiedCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 2.5rem;
+  flex: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.certifiedCard:hover {
+  border-color: var(--primary);
+  transform: scale(1.02);
+}
+
+.communityCard {
+  background: var(--card-dark);
+  color: #fff;
+  border-radius: 32px;
+  padding: 2.5rem;
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.communityCard:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.communityCard .cardTitle { color: #fff; }
+.communityCard .cardDesc { color: rgba(255,255,255,0.6); }
+
+.avatars {
+  display: flex;
+  margin-left: 0.5rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--card-dark);
+  margin-left: -12px;
+  transition: all 0.3s ease;
+}
+
+.realMomentsCard {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.realMomentsImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.realMomentsImage {
+  object-fit: cover;
+}
+
+.realMomentsContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.realMomentsText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.arrowBtnWhite {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 1100px) {
+  .bentoGrid {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+  .realMomentsCard {
+    grid-column: 1 / -1;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+  .localExpertiseCard, .middleCol, .realMomentsCard {
+    grid-column: 1 / -1;
+  }
+  .whyTitle {
+    font-size: 2.5rem;
+  }
+}
