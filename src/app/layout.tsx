@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -10,6 +11,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Cultural Connect",
   description: "Discover AlUla's most unique desert experiences",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -22,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${outfit.className} antialiased`}
       >
+        <Navbar />
         <SmoothScroll>
           {children}
         </SmoothScroll>

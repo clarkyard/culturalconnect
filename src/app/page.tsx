@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import TourPackagesSection from "@/components/TourPackagesSection";
@@ -15,7 +14,6 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Navbar />
       <div className="container">
         <Hero />
         <AboutSection />

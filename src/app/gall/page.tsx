@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
 import styles from "./gall.module.css";
 
 const photos = [
@@ -113,12 +112,9 @@ export default function GallPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   return (
-    <>
-      <main className={`container ${styles.page}`}>
-        <Navbar />
-
-        {/* Header */}
-        <section className={styles.header}>
+    <main className={`container ${styles.page}`}>
+      {/* Header */}
+      <section className={styles.header}>
           <h1 className={styles.title}>
             Real moments from<br />our desert journeys.
           </h1>
@@ -163,6 +159,5 @@ export default function GallPage() {
           </div>
         )}
       </main>
-    </>
   );
 }

@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import styles from "./gallery.module.css";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -21,12 +20,9 @@ const photos = [
 
 export default function GalleryPage() {
   return (
-    <>
-      <main className={`container ${styles.page}`}>
-        <Navbar />
-
-        {/* Header */}
-        <section className={styles.header}>
+    <main className={`container ${styles.page}`}>
+      {/* Header */}
+      <section className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.label}>Gallery</span>
             <h1 className={styles.title}>
@@ -70,6 +66,5 @@ export default function GalleryPage() {
           <a href="/contact" className={styles.ctaBtn}>Plan My Trip</a>
         </section>
       </main>
-    </>
   );
 }

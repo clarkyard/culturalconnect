@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 
 export default function WhyChooseUsSection() {
   const fadeInScale = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+    hidden: { opacity: 0, scale: 0.95, filter: "blur(10px)" },
+    visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.8 } }
   };
 
   const slideUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6 } }
   };
 
   return (

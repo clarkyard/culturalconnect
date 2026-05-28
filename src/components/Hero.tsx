@@ -3,150 +3,110 @@
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { 
+  Camera, 
+  Mountain, 
+  Zap, 
+  MapPin, 
+  Shield, 
+  Car, 
+  Route, 
+  MousePointer2 
+} from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   return (
-    <motion.section 
-      className={styles.hero}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {/* LEFT COLUMN */}
-      <motion.div className={styles.leftCol} variants={itemVariants}>
-        <div className={styles.empowerTextWrap}>
-          <p className={styles.empowerText}>
-            Guiding you through<br />undiscovered paths
-          </p>
-          <div className={styles.arrowIcon}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
-
-        <motion.div 
-          className={styles.hikerCard}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Image 
-            src="/hiker.png" 
-            alt="Person hiking" 
-            fill 
-            className={styles.hikerImage} 
-            sizes="(max-width: 768px) 100vw, 33vw"
-            priority 
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* CENTER COLUMN */}
-      <div className={styles.centerCol}>
-        <motion.h1 className={styles.headline} variants={itemVariants}>
-          Discovering <br/>the magic of <br/>the world
-        </motion.h1>
-        
-        <motion.button 
-          className={styles.getStartedBtn} 
-          variants={itemVariants}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className={styles.btnText}>Get started</span>
-          <div className={styles.btnIconWrapper}>
-            <motion.div
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </motion.div>
-          </div>
-        </motion.button>
+    <section className={styles.hero}>
+      {/* Background Image */}
+      <div className={styles.bgWrapper}>
+        <Image
+          src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1600"
+          alt="Desert Canyon Landscape"
+          fill
+          priority
+          className={styles.bgImage}
+        />
+        <div className={styles.gradientOverlay} />
       </div>
 
-      {/* RIGHT COLUMN */}
-      <motion.div className={styles.rightCol} variants={itemVariants}>
-        <div className={styles.floatingContainer}>
-          
-          <motion.div className={styles.serviceHeader} variants={itemVariants}>
-            <div className={styles.numberBadge}>3</div>
-            <h3>24/7 Adventure support</h3>
-          </motion.div>
-
-          <motion.div 
-            className={styles.bookingCard}
-            variants={itemVariants}
+      {/* Main Content */}
+      <div className={styles.content}>
+        {/* Bottom Left: Heading and Spots */}
+        <div className={styles.bottomLeft}>
+          <motion.div
+            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className={styles.userAvatar}>
-              <div className={styles.avatarGradient}></div>
-            </div>
-            <div className={styles.bookingDetails}>
-              <p className={styles.bookingName}>Sarah Booked <strong>Private Tour</strong></p>
-              <p className={styles.bookingType}>Kakum National Park</p>
-              <p className={styles.bookingTime}>Just now</p>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className={styles.bookingCard}
-            variants={itemVariants}
-          >
-            <div className={styles.successIcon}>✓</div>
-            <div className={styles.bookingDetails}>
-              <p className={styles.bookingName}>Booking Confirmed</p>
-              <p className={styles.bookingType}>Mole National Park</p>
-              <p className={styles.bookingTime}>12 min ago</p>
+            <h1 className={styles.displayHeading}>
+              Explore the Best<br />Natural Places
+            </h1>
+            <div className={styles.scenicSpots}>
+              <p>20+ Scenic</p>
+              <p>Spots Included</p>
             </div>
           </motion.div>
-
-          <motion.div 
-            className={styles.chartCard}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className={styles.miniChart}>
-              <motion.div className={styles.miniBar} initial={{height: 0}} animate={{height: "60%"}} transition={{delay: 1.8}}></motion.div>
-              <motion.div className={styles.miniBar} initial={{height: 0}} animate={{height: "80%"}} transition={{delay: 1.9}}></motion.div>
-              <motion.div className={styles.miniBar} initial={{height: 0}} animate={{height: "40%"}} transition={{delay: 2.0}}></motion.div>
-              <motion.div className={styles.miniBar} initial={{height: 0}} animate={{height: "100%"}} transition={{delay: 2.1}}></motion.div>
-              <motion.div className={styles.miniBar} initial={{height: 0}} animate={{height: "70%"}} transition={{delay: 2.2}}></motion.div>
-            </div>
-            <div className={styles.amountPill}>1.2k Tours</div>
-          </motion.div>
-          
         </div>
-      </motion.div>
-    </motion.section>
+
+        {/* Bottom Right: Description */}
+        <div className={styles.bottomRight}>
+          <motion.p 
+            className={styles.description}
+            initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          >
+            We organize scenic tours, photo stops, and guided routes 
+            to the most beautiful natural spots, with clear schedules, 
+            and simple booking.
+          </motion.p>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className={styles.bottomBar}>
+        <div className={styles.barInner}>
+          {/* Left Group: Icon Pills */}
+          <div className={styles.iconGroup}>
+            {[Camera, Mountain, Zap, MapPin].map((Icon, i) => (
+              <motion.div 
+                key={i} 
+                className={styles.iconPill}
+                initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                transition={{ duration: 0.4, delay: 0.4 + (i * 0.1) }}
+              >
+                <Icon size={20} strokeWidth={1.5} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Progress Separator */}
+          <div className={styles.separator}>
+            <div className={styles.separatorLine} />
+          </div>
+
+          {/* Right Group: Feature Badges */}
+          <div className={styles.featureGroup}>
+            {[
+              { Icon: Shield, text: "Private Trips" },
+              { Icon: Car, text: "Transport Included" },
+              { Icon: Route, text: "Custom Route" }
+            ].map((feature, i) => (
+              <motion.div 
+                key={i} 
+                className={styles.featureBadge}
+                initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.4, delay: 0.8 + (i * 0.1) }}
+              >
+                <feature.Icon size={16} strokeWidth={1.5} />
+                <span>{feature.text}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -64,8 +64,8 @@ export default function TourPackagesSection() {
   return (
     <motion.section 
       className={styles.packagesSection}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8 }}
     >
@@ -106,8 +106,8 @@ export default function TourPackagesSection() {
               key={pkg.id} 
               className={styles.packageCard}
               variants={{
-                hidden: { opacity: 0, x: 20 },
-                visible: { opacity: 1, x: 0 }
+                hidden: { opacity: 0, x: 20, filter: "blur(10px)" },
+                visible: { opacity: 1, x: 0, filter: "blur(0px)" }
               }}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}

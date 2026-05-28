@@ -38,7 +38,6 @@ body {
   /* Adding a very subtle noise texture to match the premium design vibe from the image */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   overflow-x: hidden;
-  padding-top: 80px; /* Space for fixed navbar */
 }
 
 /* Lenis CSS */
@@ -77,7 +76,7 @@ button {
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem 4rem;
+  padding: calc(4rem + 10px) 20px 2rem 20px;
 }
 
 @media (max-width: 768px) {

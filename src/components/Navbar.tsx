@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,63 +24,58 @@ export default function Navbar() {
     { label: "OVERVIEW", href: "/" },
     { label: "ABOUT", href: "/about" },
     { label: "GALLERY", href: "/gall" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   const actionLinks = [
     { label: "HELP", href: "/contact" },
-    { label: "CONTACT", href: "/contact" },
     { label: "REGISTER", href: "/contact" },
   ];
 
   const menuVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, filter: "blur(10px)" },
     visible: { 
       opacity: 1,
+      filter: "blur(0px)",
       transition: { staggerChildren: 0.1, delayChildren: 0.2 }
     },
-    exit: { opacity: 0 }
+    exit: { opacity: 0, filter: "blur(10px)" }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+    visible: { y: 0, opacity: 1, filter: "blur(0px)" }
   };
 
   return (
     <motion.nav 
       className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${isOpen ? styles.menuOpen : ""}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -100, filter: "blur(10px)" }}
+      animate={{ y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.5 }}
     >
       <div className={styles.navContainer}>
-        <div className={styles.logoAndBurger}>
-          <div className={styles.burgerWrapper}>
-            <button 
-              className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`} 
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <span></span>
-              <span></span>
-            </button>
-          </div>
-          <div className={styles.logo}>
-            <motion.div 
-              className={styles.logoIcon}
-              whileHover={{ rotate: 360, scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            >
-              <div className={styles.innerCircle}></div>
-            </motion.div>
-            <motion.span 
-              className={styles.logoText}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              Cultural Connect
-            </motion.span>
-          </div>
-        </div>
+        <Link href="/" className={styles.logo}>
+          <motion.div 
+            className={styles.logoImageWrapper}
+            whileHover={{ rotate: 360, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          >
+            <Image 
+              src="/logo.png" 
+              alt="Cultural Connect Logo" 
+              fill
+              className={styles.logoImage}
+            />
+          </motion.div>
+          <motion.span 
+            className={styles.logoText}
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            Cultural Connect
+          </motion.span>
+        </Link>
 
         <div className={styles.rightSection}>
           <div className={styles.links}>
@@ -100,6 +96,15 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+          
+          <button 
+            className={`${styles.burger} ${isOpen ? styles.burgerActive : ""}`} 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
 
